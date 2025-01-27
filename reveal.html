@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reveal</title>
+</head>
+<body>
+    <main>
+        <div class="page1">
+            <h1 class="reveal">Portfolio</h1>
+        </div>
+    </main>
+
+
+
+
+
+
+
+    <style>
+        @font-face { font-family: chillax; 
+    src: url('fonts/Chillax-Bold.otf'); 
+}
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html,body{
+            height: 100%;
+            width: 100%;
+        }
+        main{
+            height: 100%;
+            width: 100%;
+        }
+        .page1{
+            height: 100%;
+            width: 100%;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .page1 h1{
+            font-family: chillax;
+            font-size: 12vw;
+            color: #000;
+            text-transform: uppercase;
+        }
+        .reveal .parent{
+            display: block;
+            overflow: hidden;
+        }
+        .reveal .child{
+            display: block;
+        } 
+        
+    </style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+    <script>
+        document.querySelectorAll(".reveal").forEach(function(elem){
+        let spanParent = document.createElement("span");
+        let spanChild = document.createElement("span");
+    
+        spanParent.classList.add("parent");
+        spanChild.classList.add("child");
+    
+        spanChild.textContent = elem.textContent;
+        spanParent.appendChild(spanChild);
+    
+        elem.innerHTML = "";
+        elem.appendChild(spanParent);
+
+        })
+
+
+
+        gsap.from(".page1 h1 .child",{
+            color: "red",
+            duration: 5,
+            ease: Expo.easeInOut,
+            opacity: 0,
+            fontSize: "600vw"
+
+        })
+    </script>
+</body>
+</html>
