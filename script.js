@@ -116,6 +116,13 @@ const swiper2 = new Swiper(".mySwiper-1", Object.assign({}, baseSwiperSettings, 
     },
 }));
 
+const swiper3 = new Swiper(".mySwiper-2", Object.assign({}, baseSwiperSettings, {
+    breakpoints: {
+        ...baseSwiperSettings.breakpoints,
+        768: { slidesPerView: 2, spaceBetween: 30 },
+    },
+}));
+
 // Disable swiper scrolling for videos in desktop mode
 const handleVideoInteractions = () => {
     const videos = document.querySelectorAll(".swiper-slide video");
@@ -124,6 +131,8 @@ const handleVideoInteractions = () => {
             if (window.innerWidth > 768) {
                 swiper2.allowSlideNext = false;
                 swiper2.allowSlidePrev = false;
+                swiper3.allowSlideNext = false;
+                swiper3.allowSlidePrev = false;
             }
         });
 
@@ -131,6 +140,8 @@ const handleVideoInteractions = () => {
             if (window.innerWidth > 768) {
                 swiper2.allowSlideNext = true;
                 swiper2.allowSlidePrev = true;
+                swiper3.allowSlideNext = true;
+                swiper3.allowSlidePrev = true;
             }
         });
     });
